@@ -1,0 +1,37 @@
+<form action="WorldServlet" method="post" enctype="multipart/form-data">
+  <! - Cuadro de texto normal ->
+  Nombre de usuario: <input type = "text" name = "username" /> <br/>
+  Contraseña: <input type = "password" name = "pwd" /> <br/>
+
+  <! - Cuadro de selección múltiple ->
+  <input type = "checkbox" name = "v1" value = "Sandía"> Sandía
+  <input type = "checkbox" name = "v1" value = "Apple"> Apple <br/>
+
+  <! - Cuadro de selección único ->
+  <input type = "radio" name = "sex" value = " " /> Hombre
+  <input type = "radio" name = "sex" value = " " /> Mujer <br/>
+
+  <! - El propósito de ocultar es enviar datos sin afectar la interfaz ->
+  <input type="hidden"value="123"name="sal"/>
+
+  <! - Lista de selección ->
+  Elija su lugar de nacimiento:
+  <select name="bir">
+    <option value = ""> - Seleccione-- </option>
+    <option value = "bj"> Beijing </option>
+    <option value = "sh"> Shanghái </option>
+    <option value = "cq"> Chongqing </option>
+  </select>
+  <br/>
+
+  <! - Campo de texto ->
+  Por favor deje un mensaje <br/>
+  <textarea cols="30" rows="10" name="liuyan"></textarea><br/>
+
+  <! - Carga de archivo ->
+  Seleccione el archivo para cargar <br/>
+  Seleccione un archivo: <input type = "file" name = "myfile" /> <br/>
+
+  <input type = "submit" value = "log in" /> <input type = "reset" value = "rellenar" /> <br/>
+</form>
+

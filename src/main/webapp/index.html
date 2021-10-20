@@ -9,6 +9,7 @@
     <h1>
         Select the type of Liquor
     </h1>
+
     <form method="post" action="SelectLiquor">
         <br>
         <select name="Type" size="1">
@@ -18,7 +19,10 @@
 
         </select>
         <br><br>
-        <input type="submit">
+        <P>
+            <input type="submit" value="Enviar">
+        <P>
+
     </form>
 </center>
 
@@ -58,3 +62,23 @@
     <img src="send.svg" alt="imagen" width="32" height="32" style="vertical-align: middle">
     Enviar
 </button>
+
+<p>
+<p>
+<p>
+<p>
+
+
+<form name="formulario" method="post" action="/send.php">
+    <!-- Número entre 10 y 50, de 5 en 5. Valor por defecto: 25 -->
+    <input type="number" name="numero" value="25" min="10" max="50" step="5" />
+    <!-- Su misma versión, utilizando el slider en un rango numérico -->
+    <input type="range" name="numrango" value="25" min="10" max="50" step="5" />
+</form>
+
+
+<label for="tentacles">Number of tentacles (10-100):</label>
+<p>
+<p>
+<input type="number" id="tentacles" name="tentacles"
+       min="10" max="100">
