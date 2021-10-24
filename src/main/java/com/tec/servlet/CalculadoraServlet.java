@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CalculadoraServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String Nombre = request.getParameter("nombre");
@@ -21,6 +22,8 @@ public class CalculadoraServlet extends HttpServlet {
 
             response.getWriter().println("Su nombre es: " + Nombre);
             response.getWriter().println("<br>La expresión a resolver es: " + Expresion);
+            response.getWriter().println("<br>El resultado de la expresión es: Resultado");
+
 
 
             response.getWriter().println("</body>");
@@ -30,4 +33,6 @@ public class CalculadoraServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+
 }
