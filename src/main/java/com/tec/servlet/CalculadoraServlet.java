@@ -10,7 +10,7 @@ public class CalculadoraServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String Nombre = request.getParameter("nombre");
-        String Expresion = request.getParameter("expresion");
+        String Expresion = request.getParameter("operacion");
 
         try {
             response.getWriter().println("<html>");
