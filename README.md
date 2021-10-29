@@ -2,7 +2,10 @@
 
 ## JavaDoc
 
-Documentación interna [Link](https://1drv.ms/u/s!AuGqWSiBjzZGiDW96HfPg7ygYlpV?e=yxGmjo)
+### Documentación interna [Link](https://1drv.ms/u/s!AuGqWSiBjzZGiDW96HfPg7ygYlpV?e=yxGmjo)
+
+Se encontrará dos carpetas, es de preferencia que descargue el archivo comprimido en la carpeta llamada "archivo comprimido"
+Posteriormente debe descomprimirlo, puede urilizar WinRar, si no lo tiene puede descargarlo [aquí](https://www.winrar.es/descargas)
  
 
 ## Diagrama de clases
