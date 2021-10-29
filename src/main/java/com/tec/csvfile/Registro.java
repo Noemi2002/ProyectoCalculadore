@@ -1,7 +1,7 @@
 /**
  * Esta clase se encarga de guardar en un archivo .csv un registros de las expresiones y sus resultados
  */
-package com.tec;
+package com.tec.csvfile;
 
 public class Registro {
 

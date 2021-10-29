@@ -3,8 +3,6 @@
  */
 package com.tec.ResultadoOperacion;
 
-import com.tec.Registro;
-
 public class Convertir {
         public static String getResultado(String operacion) {
             //String operacion="5*5+10-6";
