@@ -3,56 +3,54 @@
  */
 package com.tec.ResultadoOperacion;
 
+import java.util.Stack;
+
 public class Convertir {
-        public static String getResultado(String operacion) {
-            //String operacion="5*5+10-6";
-            int tam = operacion.length();
-            String A[] = new String[1000000]; //Array para guardar los operadores
-            String operaciones[] = new String[1000000]; //Array para guardar los operandos
-            int pos = 0;
-            int sum = 0;
-            String aux = "";
 
-            operaciones[0] = "+";
-            int index_operacion = 1;
-            for(int i = 0; i<tam ; i++)
-            {
-                if(operacion.charAt(i) == '+' || operacion.charAt(i) == '-' || operacion.charAt(i) == '*' || operacion.charAt(i) == '/' || operacion.charAt(i) == '%')
-                {
-                    A[pos] = aux; //Aquí va guardando los números uno a uno
-                    operaciones[index_operacion] = String.valueOf(operacion.charAt(i));
-                    pos++;
-                    index_operacion++;
-                    aux = "";
-                }
-                else
-                {
-                    aux = aux + operacion.charAt(i);
-                }
-            }
-            A[pos] = aux;
-            pos++;
+    public String getResultado(String exp){
+        final String ops = "-+/*^";
 
-            for(int i = 0; i<pos ; i++)
-            {
+        StringBuilder sb = new StringBuilder();
+        Stack<Integer> s = new Stack<>();
 
-                //Obtiene el resultado
-                if(operaciones[i].equals("+")){
-                    sum = sum+Integer.parseInt(A[i]);
-                }else if (operaciones[i].equals("-")){
-                    sum=sum-Integer.parseInt(A[i]);
-                }else if (operaciones[i].equals("/")){
-                    sum=sum/Integer.parseInt(A[i]);
-                }else if (operaciones[i].equals("*")){
-                    sum= sum*Integer.parseInt(A[i]);
+        for (String token : exp.split("\\s")) {
+            if (token.isEmpty())
+                continue;
+            char c = token.charAt(0);
+            int idx = ops.indexOf(c);
 
-                }else if (operaciones[i].equals("%")){
-                    sum=sum%Integer.parseInt(A[i]);
+// check for operator
+            if (idx != -1) {
+                if (s.isEmpty())
+                    s.push(idx);
+
+                else {
+                    while (!s.isEmpty()) {
+                        int prec2 = s.peek() / 2;
+                        int prec1 = idx / 2;
+                        if (prec2 > prec1 || (prec2 == prec1 && c != '^'))
+                            sb.append(ops.charAt(s.pop())).append(' ');
+                        else break;
+                    }
+                    s.push(idx);
                 }
             }
-            //new Registro().guardarDatos(operacion, String.valueOf(sum)); //Llamada para que los datos se guarden en el archivo csv
-            return String.valueOf(sum);
-
+            else if (c == '(') {
+                s.push(-2); // -2 stands for '('
+            }
+            else if (c == ')') {
+// until '(' on stack, pop operators.
+                while (s.peek() != -2)
+                    sb.append(ops.charAt(s.pop())).append(' ');
+                s.pop();
+            }
+            else {
+                sb.append(token).append(' ');
+            }
         }
+        while (!s.isEmpty())
+            sb.append(ops.charAt(s.pop())).append(' ');
+        return sb.toString();
 
     }
+}
