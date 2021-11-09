@@ -25,9 +25,11 @@ public class CalculadoraServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Convertir evaluar = new Convertir();
         String Nombre = request.getParameter("nombre");
         String Expresion = request.getParameter("expresion");
-        String Resultado = new Convertir().getResultado(Expresion);
+        String Postfija = evaluar.getResultado(Expresion);
+        String Resultado = evaluar.evaluatePostfix(Postfija);
         Date Fecha = new Date();
         new Registro.Regi(Nombre, Fecha, Expresion);
 
