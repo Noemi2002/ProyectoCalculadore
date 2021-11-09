@@ -11,7 +11,7 @@ import java.util.*;
 public class Registro {
 
     public static class Regi {
-        public Regi(String nombre, Date fecha, String expresion) {
+        public Regi(String nombre, Date fecha, String postfija, String resultado) {
             try (PrintWriter writer = new PrintWriter(new File(
                     "C:\\Users\\cmont\\Documents\\TEC\\Semestre 2\\Datos 1\\CSV\\test.csv"))) {
 
@@ -22,8 +22,10 @@ public class Registro {
                 sb.append(',');
                 sb.append(fecha);
                 sb.append(',');
-                sb.append(expresion);
-                //sb.append('\n');
+                sb.append(postfija);
+                sb.append(',');
+                sb.append(resultado);
+                sb.append('\n');
 
 
                 writer.write(sb.toString());

@@ -36,7 +36,7 @@ public class CalculadoraServlet extends HttpServlet {
         String Resultado = evaluar.evaluarExpresion(Postfija);
 
         Date Fecha = new Date(); //Se obtiene la fecha
-        new Registro.Regi(Nombre, Fecha, Expresion); //Se hace el registro
+        new Registro.Regi(Nombre, Fecha, Postfija, Resultado); //Se hace el registro
 
 
         //Mostrar los resultados
