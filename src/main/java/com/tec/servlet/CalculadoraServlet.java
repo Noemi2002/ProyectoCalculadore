@@ -25,14 +25,21 @@ public class CalculadoraServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Convertir evaluar = new Convertir();
+        Convertir evaluar = new Convertir(); //Instancia de la clase que evalua la expresion
+
+        //Se guardan en variables lo que el cliente ingresó
         String Nombre = request.getParameter("nombre");
         String Expresion = request.getParameter("expresion");
-        String Postfija = evaluar.getResultado(Expresion);
-        String Resultado = evaluar.evaluatePostfix(Postfija);
-        Date Fecha = new Date();
-        new Registro.Regi(Nombre, Fecha, Expresion);
 
+        //Se obtiene la expresión en notación postfija y el resultado de la misma
+        String Postfija = evaluar.getResultado(Expresion);
+        String Resultado = evaluar.evaluarExpresion(Postfija);
+
+        Date Fecha = new Date(); //Se obtiene la fecha
+        new Registro.Regi(Nombre, Fecha, Expresion); //Se hace el registro
+
+
+        //Mostrar los resultados
         try {
             response.getWriter().println("<html>");
             response.getWriter().println("<center>");
@@ -49,7 +56,8 @@ public class CalculadoraServlet extends HttpServlet {
 
             response.getWriter().println("<br>Su nombre es: " + Nombre + "<p>");
             response.getWriter().println("<br>La fecha es: " + Fecha + "<p>");
-            response.getWriter().println("<br>La expresión a resolver es: " + Expresion +"<p>");
+            response.getWriter().println("<br>La expresión a resolver es en notación infija es: " + Expresion +"<p>");
+            response.getWriter().println("<br>La expresión a resolver es en notación postfija es: " + Postfija +"<p>");
             response.getWriter().println("<br>El resultado de la expresión es: " + Resultado);
             response.getWriter().println("</form>");
 
